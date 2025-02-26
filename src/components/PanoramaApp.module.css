@@ -1,0 +1,164 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.title {
+  font-size: 1.2rem;
+  color: #edeff1;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.subtitle {
+  font-size: 0.7rem;
+  color: #a2e3e7;
+  margin: 10px 0 0 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.mainContent {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.viewerSection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.viewerWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.controlSection {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 250px;
+  transition: all 0.3s ease;
+}
+
+.controlSection:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.placeholderContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px dashed #dee2e6;
+}
+
+.placeholderIcon {
+  width: 80px;
+  height: 80px;
+  color: #adb5bd;
+  margin-bottom: 20px;
+}
+
+.placeholderText {
+  font-size: 1.2rem;
+  color: #6c757d;
+  text-align: center;
+  max-width: 80%;
+}
+
+.loadingContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #3498db;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorContainer {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  color: #721c24;
+}
+
+.errorMessage {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 10px 0;
+  color: #95a5a6;
+  font-size: 0.9rem;
+  z-index: 10;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* レスポンシブデザイン */
+@media (min-width: 768px) {
+  .mainContent {
+    flex-direction: row;
+  }
+
+  .controlSection {
+    max-width: 350px;
+  }
+} 
