@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Panorama Image Viewer",
-  description: "Panorama Image Viewer",
+  title: "Panorama Viewer",
+  description: "Panorama Viewer",
 };
 
 export default function RootLayout({
