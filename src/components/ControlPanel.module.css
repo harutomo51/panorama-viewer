@@ -1,29 +1,36 @@
 .controlPanel {
   width: 100%;
-  padding: 10px;
-  background-color: rgba(245, 245, 245, 0.8);
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 180px;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.controlPanel:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .dropZone {
   width: 100%;
-  min-height: 120px;
-  border: 2px dashed #ccc;
-  border-radius: 8px;
+  min-height: 80px;
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .dropZone:hover {
   border-color: #3498db;
-  background-color: rgba(52, 152, 219, 0.05);
+  background-color: rgba(52, 152, 219, 0.1);
 }
 
 .dragging {
@@ -39,22 +46,22 @@
 }
 
 .uploadIcon {
-  width: 32px;
-  height: 32px;
-  color: #3498db;
-  margin-bottom: 10px;
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  margin-bottom: 5px;
 }
 
 .dropZoneText {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
-  margin: 0 0 5px 0;
-  color: #333;
+  margin: 0 0 2px 0;
+  color: #ffffff;
 }
 
 .dropZoneSubtext {
-  font-size: 12px;
-  color: #666;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
 }
 

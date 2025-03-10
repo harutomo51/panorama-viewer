@@ -8,6 +8,7 @@ const PanoramaApp: React.FC = () => {
   const [isVideo, setIsVideo] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [showControls, setShowControls] = useState<boolean>(true);
 
   const handleFileSelect = (file: File, fileIsVideo: boolean) => {
     setIsLoading(true);
@@ -19,6 +20,11 @@ const PanoramaApp: React.FC = () => {
       setMediaUrl(url);
       setIsVideo(fileIsVideo);
       setIsLoading(false);
+      
+      // ファイルが読み込まれたら、コントロールを自動的に非表示にする
+      setTimeout(() => {
+        setShowControls(false);
+      }, 2000);
     } catch (err) {
       setError('An error occurred while loading the file.');
       setIsLoading(false);
@@ -32,6 +38,34 @@ const PanoramaApp: React.FC = () => {
       if (mediaUrl) {
         URL.revokeObjectURL(mediaUrl);
       }
+    };
+  }, [mediaUrl]);
+
+  // マウスの動きを検出して、コントロールの表示/非表示を切り替える
+  useEffect(() => {
+    if (!mediaUrl) return;
+
+    let timeout: NodeJS.Timeout;
+    
+    const handleMouseMove = () => {
+      setShowControls(true);
+      
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setShowControls(false);
+      }, 3000);
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    // 初期タイムアウト設定
+    timeout = setTimeout(() => {
+      setShowControls(false);
+    }, 3000);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      clearTimeout(timeout);
     };
   }, [mediaUrl]);
 
@@ -80,9 +114,11 @@ const PanoramaApp: React.FC = () => {
           )}
         </section>
 
-        <section className={styles.controlSection}>
-          <ControlPanel onFileSelect={handleFileSelect} />
-        </section>
+        {(showControls || !mediaUrl) && (
+          <section className={styles.controlSection}>
+            <ControlPanel onFileSelect={handleFileSelect} />
+          </section>
+        )}
       </main>
 
       <footer className={styles.footer}>

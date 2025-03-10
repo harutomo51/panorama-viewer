@@ -69,10 +69,10 @@ const ControlPanel: React.FC<ControlPanelProps> = ({ onFileSelect }) => {
             <line x1="12" y1="3" x2="12" y2="15"></line>
           </svg>
           <p className={styles.dropZoneText}>
-            Select File
+            360°画像
           </p>
           <p className={styles.dropZoneSubtext}>
-            360° JPG, PNG, MP4
+            選択
           </p>
         </div>
       </div>

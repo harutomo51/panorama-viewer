@@ -20,7 +20,7 @@
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   color: #edeff1;
   margin: 0;
   font-weight: 700;
@@ -51,23 +51,27 @@
 .viewerWrapper {
   width: 100%;
   height: 100%;
+  min-height: 500px;
+  border-radius: 8px;
   overflow: hidden;
+  cursor: grab;
+}
+
+.viewerWrapper:active {
+  cursor: grabbing;
 }
 
 .controlSection {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 8px;
-  max-width: 250px;
   transition: all 0.3s ease;
+  transform: scale(0.9);
 }
 
 .controlSection:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1);
 }
 
 .placeholderContainer {
@@ -147,18 +151,25 @@
   text-align: center;
   padding: 10px 0;
   color: #95a5a6;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   z-index: 10;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
 }
 
 /* レスポンシブデザイン */
 @media (min-width: 768px) {
   .mainContent {
-    flex-direction: row;
+    position: relative;
   }
 
-  .controlSection {
-    max-width: 350px;
+  .viewerSection {
+    width: 100%;
+    height: 100%;
   }
 } 
